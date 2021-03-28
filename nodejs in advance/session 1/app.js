@@ -266,8 +266,13 @@
 
 // fetch from api
 
+
 fetch("https://jsonplaceholder.typicode.com/todos")
-  .then((response) => response.json())
+  .then((response) => {
+
+        // console.log(response)
+      return response.json();
+  })
   .then(function (todos) {
       const todosList = document.querySelector('.todos')
 
@@ -281,6 +286,9 @@ fetch("https://jsonplaceholder.typicode.com/todos")
   });
 
 // fetch('https:www.google.com')
+
+
+
 
 
 
