@@ -103,12 +103,10 @@ newEmail = "ib@gmail.com";
 //     console.log(newData)
 // })
 
-
 // const user = {
 //   id: 1,
 //   email: "iib@gmail.com",
 //   salary: 1000,
-
 
 //   printDetails: function () {
 //     const details = {
@@ -130,28 +128,28 @@ newEmail = "ib@gmail.com";
 // Normal For
 
 const users = [
-    {
-        id: 1,
-        email: 'ib@gmail.com',
-        name: "ibrahem"
-    },
-    {
-        id: 2,
-        email: 'ah@gmail.com',
-        name: "ahmed"
-    },
-    {
-        id: 3,
-        email: 'ali@gmail.com',
-        name: "ali"
-    },
-]
+  {
+    id: 1,
+    email: "ib@gmail.com",
+    name: "ibrahem",
+  },
+  {
+    id: 2,
+    email: "ah@gmail.com",
+    name: "ahmed",
+  },
+  {
+    id: 3,
+    email: "ali@gmail.com",
+    name: "ali",
+  },
+];
 
-const user = {
-  id: 1,
-  email: "ib@gmail.com",
-  name: "ibrahem",
-};
+// const user = {
+//   id: 1,
+//   email: "ib@gmail.com",
+//   name: "ibrahem",
+// };
 
 // for (let i =0; i < users.length; i ++) {
 //     console.log(users[i])
@@ -162,7 +160,7 @@ const user = {
 // FOR OF
 
 // for (let item of user) {
-//     console.log(user)
+//     console.log(item)
 // }
 
 // console.log("// ****************************************************** //")
@@ -186,11 +184,9 @@ const user = {
 
 // })
 
-
 // ****************************************************** //
 // ********************** CLASSES *********************** //
 // ****************************************************** //
-
 
 // const nissan = {
 //     name: 'Nissan',
@@ -210,18 +206,14 @@ const user = {
 //   },
 // };
 
-
-
-
 // function CAR (name, model, price) {
-    
 
 //     const obj = {
 //         print: function() {
 //             this.name = name;
 //             this.model = model;
 //             this.price = price;
-            
+
 //             console.log(this.name + " Model: " + this.model + " Price: " + this.price)
 //         }
 //     }
@@ -233,72 +225,188 @@ const user = {
 
 // bmw.print()
 
-
-
 class Car {
+  name;
+  model;
+  price;
 
-    name;
-    model;
-    price;
+  constructor(carName, carModel, carPrice) {
+    this.name = carName;
+    this.model = carModel;
+    this.price = carPrice;
+  }
 
-    constructor(carName, carModel, carPrice) {
-        this.name = carName;
-        this.model = carModel;
-        this.price = carPrice;
-    }
-
-    print() {
-        console.log(
-          this.name + " Model: " + this.model + " Price: " + this.price
-        );
-    }
+  print() {
+    console.log(this.name + " Model: " + this.model + " Price: " + this.price);
+  }
 }
 
-const nissan = new Car('Nissan', 2019, 210000)
+const nissan = new Car("Nissan", 2019, 210000);
 
 // nissan.print()
 
-const kia = new Car('Kia', 2021, 250000)
+const kia = new Car("Kia", 2021, 250000);
 // kia.print()
 
 // ****************************************************** //
 // ********************** PROMISE *********************** //
 // ****************************************************** //
 
-const buyACar = new Promise((resolve, reject) => {
-    const score = 90;
-    
-    setTimeout(() => {
-        if (score > 95) {
-            resolve({ status: 200, msg: 'You Could Buy A Car Now' })
-        } else {
-            reject({status: 400, msg: 'You Can Not Buy A Car'})
-        }
-    }, 3000)
-})
+// const buyACar = new Promise((resolve, reject) => {
+//     const score = 90;
 
-buyACar.then((result) => {
-    console.log(result)
-}).catch((err) => console.log(err))
+//     setTimeout(() => {
+//         if (score > 95) {
+//             resolve({ status: 200, msg: 'You Could Buy A Car Now' })
+//         } else {
+//             reject({status: 400, msg: 'You Can Not Buy A Car'})
+//         }
+//     }, 3000)
+// })
+
+// buyACar.then((result) => {
+//     console.log(result)
+// }).catch((err) => console.log(err))
+
 
 
 // ****************************************************** //
 // ********************** SYMBOL ************************ //
 // ****************************************************** //
 
+// string
+// number
+// boolean
+// object
+// undefined
+// null
+// Symbol
+
+
+const foodType = Symbol('food')
+
+const chickenFoodType = Symbol('food')
+
+const drinkType = Symbol("drink");
+
+
+// const burger = {
+//   name: "Burger King",
+//   flag: foodType,
+// };
+
+// const chickenFood = {
+//     name: 'chicken Food Brand',
+//     flag:chickenFoodType
+// }
+
+// const milkShake = {
+//   name: "Starbucks",
+//   flag: "drink",
+// };
+const items = [
+  {
+    name: "Burger King",
+    flag: foodType,
+  },
+  {
+    name: "Macdonald",
+    flag: foodType,
+  },
+  {
+    name: "chicken Food Brand",
+    flag: chickenFoodType,
+  },
+  {
+    name: "Starbucks",
+    flag: drinkType,
+  },
+];
+
+
+const normalFood = items.filter((item) => item.flag == chickenFoodType);
+
+console.log(normalFood)
+
+
+
+
 // ****************************************************** //
 // ************* FUNCTION REST PARAMETERS *************** //
 // ****************************************************** //
+
+
+// function plusAll( ...numbers ) {
+//     let result = 0;
+
+//     numbers.forEach(num => result += num)
+
+//     console.log(result)
+// }
+
+// plusAll(1, 2, 3, 4, 5, 6 ,7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17)
+
+function plusAll(multiBy, ...rest) {
+    // console.log(multiBy)
+    // console.log(rest)
+    
+    let result = 0;
+    rest.forEach(num => result += (num * multiBy))
+
+    console.log(result)
+    
+}
+
+plusAll(2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 // ****************************************************** //
 // ******************* ARRAY METHODS ******************** //
 // ****************************************************** //
 
+const usersData = [
+    {
+        name: 'ahmed',
+        email: 'ahmed@gmail.com',
+        salary: 2000
+    },
+    {
+        name: 'mohammed',
+        email: 'mohammed@gmail.com',
+        salary: 4000
+    },
+    {
+        name: 'mario',
+        email: 'mario@gmail.com',
+        salary: 5600
+    },
+    {
+        name: 'anwar',
+        email: 'anwar@gmail.com',
+        salary: 6000
+    },
+]
+
+
+
 // Array.find()
+const user = usersData.find((u) => {
+    return u.salary < 5000
+})
+
+console.log(user)
+
+
 
 // Array.findIndex()
+const userIndex = usersData.findIndex( (u) => u.salary == 6000 )
+console.log(userIndex)
 
 // Array.filter()
+const targetedUsers = usersData.filter((u) => u.salary < 6000)
+console.log(targetedUsers)
+
+
+
 
 // ADDITIONAL THINGS
 
@@ -320,7 +428,3 @@ buyACar.then((result) => {
 //       clearInterval(interval);
 //     }
 // }, 1000)
-
-
-
-
