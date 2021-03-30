@@ -1,13 +1,12 @@
 // includes (string & array)
 
-const userName = 'ahmed ali';
+const userName = "ahmed ali";
 
 // console.log(userName.includes('ali'))
 
-const classes = ['main', 'h2', 'bla']
+const classes = ["main", "h2", "bla"];
 
 // console.log(classes.includes('h3'))
-
 
 // *********** EXAMPLE
 // get element from dom (Document Object Model || document.*)
@@ -28,7 +27,6 @@ const classes = ['main', 'h2', 'bla']
 // *********** EXAMPLE
 // const email = ' '
 
-
 // if (email.trim()) {
 //     console.log('Email Is Found')
 // } else {
@@ -38,11 +36,9 @@ const classes = ['main', 'h2', 'bla']
 
 // substr
 
-
-const userName2 = 'ahmed mohammed'
+const userName2 = "ahmed mohammed";
 // console.log(userName2.substr(0, 5))
 // console.log(userName2)
-
 
 // *********** EXAMPLE
 const paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`;
@@ -56,17 +52,16 @@ const paragraph = `Lorem Ipsum is simply dummy text of the printing and typesett
 // ******************************************************************** //
 
 // repeat
-const str = '*'
+const str = "*";
 
 // console.log(str.repeat(10))
-
 
 // ******************************************************************** //
 // ******************************************************************** //
 // ******************************************************************** //
 // replace
-const str2 = 'hi ahmed, hhhhh'
-const wordLength = 5
+const str2 = "hi ahmed, hhhhh";
+const wordLength = 5;
 // console.log(str2.replace("hhhhh", "#".repeat(wordLength)));
 
 // ******************************************************************** //
@@ -78,10 +73,8 @@ const wordLength = 5
 // const allAbove5k = salaries.every( (s) => s > 5000)
 // console.log(allAbove5k)
 
-
 // const allAbove1k = salaries.every( (s) => s >= 1000)
 // console.log(allAbove1k)
-
 
 // *********** EXAMPLE
 const usersAges = [21, 20, 30, 29, 17];
@@ -114,16 +107,14 @@ const allA18 = usersAges.every((num) => num >= 18);
 
 // // const salaries = [1000, 2000, 5000, 50000, 6000];
 // // prev + current = total
-// // 1000 + 2000 = 3000 
+// // 1000 + 2000 = 3000
 // // 3000 + 5000 = 8000
 // // 8000 + 50000 = 58000
 // // 58000 + 6000 = 64000
 
-
 // const totalWithReduce = salaries.reduce((prev, current) => prev + current,)
 
 // console.log(totalWithReduce)
-
 
 // const usersData = [
 //     {
@@ -165,44 +156,51 @@ const allA18 = usersAges.every((num) => num >= 18);
 // map
 
 const usersData = [
-    {
-        name: 'Ahmed',
-        salary: 5000
-    },
-    {
-        name: 'Ali',
-        salary: 3000
-    },
-    {
-        name: 'Mohammed',
-        salary: 50000
-    },
-    {
-        name: 'Magid',
-        salary: 6000
-    },
-    {
-        name: 'Mina',
-        salary: 9000
-    },
-]
+  {
+    name: "Ahmed",
+    salary: 5000,
+  },
+  {
+    name: "Ali",
+    salary: 3000,
+  },
+  {
+    name: "Mohammed",
+    salary: 50000,
+  },
+  {
+    name: "Magid",
+    salary: 6000,
+  },
+  {
+    name: "Mina",
+    salary: 9000,
+  },
+];
 
 const salariesCollection = [];
 
 usersData.forEach(function (s) {
-    salariesCollection.push(s.salary)
-})
+  salariesCollection.push(s.salary);
+});
 
-console.log(salariesCollection)
+console.log(salariesCollection);
 
 // const fullSalaries = usersData.map( (u) => {
 //     u.id = new Date().getTime();
 //     return u
 // } )
-const fullSalaries = usersData.map( (u) => u.salary * 2 )
 
-// console.log(fullSalaries)
+// []
+// [10000]
+// [10000, 60000]
+// ...
 
+const fullSalaries = usersData.map(function (u) {
+  return u.salary * 2;
+});
+
+console.log(fullSalaries);
 
 // |-----|
 // |     | =>  ()
@@ -240,34 +238,32 @@ const fullSalaries = usersData.map( (u) => u.salary * 2 )
 // console.log(arrSplice)
 // console.log(arr)
 
-
 // ******************************************************************** //
 // ******************************************************************** //
 // ******************************************************************** //
 
 const attributes = {
-    class: 'main btn primaryColor',
-    id: 'mainBtn',
-    data: 'Subscribe'
-}
+  class: "main btn primaryColor",
+  id: "mainBtn",
+  data: "Subscribe",
+};
 
 // Object.keys
 
-const keys = Object.keys(attributes)
+const keys = Object.keys(attributes);
 
 // keys.forEach(key => {
 //     ele.setAttribute(key, keys[key])
 // })
 
 // Object.values
-const values = Object.values(attributes)
-console.log(values)
-
+const values = Object.values(attributes);
+console.log(values);
 
 // Object.entries
-const entries = Object.entries(attributes)
+const entries = Object.entries(attributes);
 
-console.log(entries)
+console.log(entries);
 
 // ******************************************************************** //
 // ******************************************************************** //
@@ -286,14 +282,14 @@ console.log(entries)
 // });
 
 // const ok2 = new Promise((resolve, reject) => {
-//   const result = true;
+//   const result = false;
 //   setTimeout(() => {
 //     if (result) {
 //       resolve("OK 2");
 //     } else {
 //       reject("OK 2 Failed");
 //     }
-//   }, 500);
+//   }, 3000);
 // });
 
 // const ok3 = new Promise((resolve, reject) => {
@@ -304,51 +300,76 @@ console.log(entries)
 //     } else {
 //       reject("OK 3 Failed");
 //     }
-//   }, 300);
+//   }, 5000);
 // });
 
-// ok1.then(result => {
-//     console.log(result);
+// ok1.then((result) => {
+//     console.log(result)
+// }).catch((err) => {
+//     console.log(err)
+// })
 
-//     ok2.then(ok2Result => {
-//         console.log(ok2Result);
+// ok2.then((result) => {
+//     console.log(result)
+// }).catch((err) => {
+//     console.log(err)
+// })
 
-//         ok3.then(ok3Result => {
-//             console.log(ok3Result);
+// ok3.then((result) => {
+//     console.log(result)
+// }).catch((err) => {
+//     console.log(err)
+// })
 
-//         }).catch(err => console.log(err))
-//     }).catch(err => console.log(err))
-// }).catch(err => console.log(err))
+
+// ok1
+//   .then((result1) => {
+//     console.log(result1);
+
+//     ok2
+//       .then((result2) => {
+//         console.log(result2);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// ok3
+//   .then((result3) => {
+//     console.log(result3);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
 
 
 // async function executePromises() {
-//   try {
-//     const ok1Result = await ok1;
-//     console.log(ok1Result);
-//     const ok2Result = await ok2;
-//     console.log(ok2Result);
-//     const ok3Result = await ok3;
-//     console.log(ok3Result);
-//   } catch (err) {
-//     console.log(err);
-//   }
+//     try {
+//         const result1 = await ok1;
+//         console.log(result1);
+//         const result2 = await ok2;
+//         console.log(result2);
+//         const result3 = await ok3;
+//         console.log(result3);
+//     } catch(reason) {
+//         console.log(reason)
+//     }
 // }
+
+
 // executePromises()
 
-// fetch("https://jsonplaceholder.typicode.com/todos/1")
-//   .then((response) => response.json())
-//   .then((json) => console.log(json));
+async function fetchTodos() {
+    const response = await fetch("http://jsonplaceholder.typicode.com/todos/");
+    console.log(response)
+    const data = await response.json()
 
-// async function fetchTodos() {
-//   try {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-//     console.log(response);
-//     const data = await response.json();
+    console.log(data)
+} 
 
-//     console.log(data);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-
-// fetchTodos();
+fetchTodos()
