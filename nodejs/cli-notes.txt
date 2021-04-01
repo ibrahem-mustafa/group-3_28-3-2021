@@ -1,0 +1,11 @@
+ls => list all files and directories in current path
+
+cd => move from path to another path || Eg: cd nodejs | cd .. | cd nodejs/digrams | cd ../../ || cd ../../nodejs in advance
+
+touch => create new file
+
+rm => delete file (in bash) || del => delete file (in cmd) 
+
+mkdir => create new folder
+
+rmdir => remove directory
