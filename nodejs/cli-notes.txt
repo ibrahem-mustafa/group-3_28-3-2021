@@ -9,3 +9,7 @@ rm => delete file (in bash) || del => delete file (in cmd)
 mkdir => create new folder
 
 rmdir => remove directory
+
+nano => edit file in terminal
+
+start => open folder in explorer
