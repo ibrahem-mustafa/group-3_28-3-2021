@@ -35,7 +35,7 @@ if (!todoList) {
 
 
 (async function () {
-    const response = await fetch("http://jsonplaceholder.typicode.com/todos/");
+    const response = await fetch("http://localhost:3000/todosData");
     const todos = await response.json()
     
 
