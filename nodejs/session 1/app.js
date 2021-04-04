@@ -66,22 +66,19 @@ const fs = require("fs");
 const app = http.createServer((req, res) => {
   const url = req.url;
 
-  let data;
-
   if (url === "/") {
-    console.log("Request For Home Page");
-    data = fs.readFileSync("./pages/index.html");
+    sendFile("./pages/index.html", res);
   } else if (url === "/contact") {
-    console.log("Request For Contact Page");
-    data = fs.readFileSync("./pages/contact.html");
+    sendFile("./pages/contact.html", res);
   } else if (url === "/about") {
-    console.log("Request For About Page");
-    data = fs.readFileSync("./pages/about.html");
+    sendFile("./pages/about.html", res);
   } else if (url === "/main.js") {
-    data = fs.readFileSync("./pages/main.js");
+    sendFile("./pages/main.js", res);
   } else if (url == "/todos") {
-    //   TODO: Send Task Files
-  } else if (url === "/todosData") {
+    sendFile('./todosManager/index.html', res)
+  } else if (url == '/todoManagerJs') {
+    sendFile("./todosManager/app.js", res);
+  }else if (url === "/todosData") {
     const todos = [
       {
         userId: 1,
@@ -115,15 +112,26 @@ const app = http.createServer((req, res) => {
         completed: false,
       },
     ];
-
-    //   TODO: Transform JSON data into String
+    res.end(JSON.stringify(todos))
   } else {
-    console.log("Request For Anonymous Page");
-    data = fs.readFileSync("./pages/404.html");
+    sendFile("./pages/404.html", res);
   }
 
-  res.end(data);
 });
+
+
+function sendFile(path, res) {
+  try {
+    if (!fs.existsSync(path)) {
+      return res.end('not Found')
+    }
+    const file = fs.readFileSync(path)
+    res.end(file)
+  } catch (err) {
+    console.log(err)
+    res.end("not Found");
+  }
+}
 
 app.listen(3000);
 
