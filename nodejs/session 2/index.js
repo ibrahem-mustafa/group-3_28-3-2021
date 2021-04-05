@@ -14,9 +14,7 @@ const app = http.createServer((req, res) => {
 function saveError(err) {
     if (!fs.existsSync('./log')) {
         fs.writeFileSync('./log', '')
-        fs.appendFileSync('./log','=============================================================\n')
-        fs.appendFileSync('./log', new Date().toISOString() + '\n')
-        fs.appendFileSync('./log', err.stack + '\n')
+        
     }
 
     fs.appendFileSync(

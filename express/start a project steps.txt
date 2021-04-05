@@ -1,0 +1,9 @@
+// npm i -g express-generator || If It's Not Installed
+
+express "projectName"
+
+cd "projectName"
+
+npm install || npm i
+
+node/nodemon app.js

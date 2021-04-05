@@ -1,0 +1,8 @@
+// different users => signUp | signIn
+// publishing system
+==> list all articles
+==> get single article
+==> cerate article
+==> edit article
+==> delete article
+// all articles can be retrieved (reade) by visitor user

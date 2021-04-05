@@ -1,0 +1,49 @@
+=============================================================
+2021-04-04T12:27:02.882Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+=============================================================
+2021-04-04T12:27:02.884Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+=============================================================
+2021-04-04T12:27:04.943Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+=============================================================
+2021-04-04T12:44:36.543Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+=============================================================
+2021-04-04T12:44:37.472Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+=============================================================
+2021-04-04T12:44:59.725Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+=============================================================
+2021-04-04T12:45:02.193Z
+Error: Something Went Wrong
+    at Server.<anonymous> (G:\nti Sessions\group-3_28-3-2021\nodejs\session 2\index.js:7:15)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:786:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
