@@ -26,12 +26,29 @@ router.get('/', (req, res) => {
     })
 })
 
+
+// Get Article By Id
+router.get('/:id', (req, res) => {
+    const {id} = req.params
+    
+    const article = articles.find(art => art.id == id)
+
+    if (!article) {
+        return res.status(404).json({
+            message: 'Article Not Found'
+        })
+    }
+    
+
+    res.json({article})
+})
+
 // Create New Article For User
 // title, content
 router.post('/', (req, res) => {
-    // TODO: ACCESS REQUEST BODY AND GET DATA
+    // ACCESS REQUEST BODY AND GET DATA
     const { title, content } = req.body;
-    // TODO: CREATE NEW ARTICLE WITH GIVEN DATA
+    // CREATE NEW ARTICLE WITH GIVEN DATA
     const article = {
         id: new Date().getTime(),
         title, content,
@@ -41,25 +58,38 @@ router.post('/', (req, res) => {
         },
         createdAt: new Date()
     }
-    // TODO: SAVE ARTICLE
+    // SAVE ARTICLE
     articles.push(article)
-    // TODO: SEND BACK THE NEW ARTICLE IN RESPONSE
+    // SEND BACK THE NEW ARTICLE IN RESPONSE
     res.json({
         article
     })
 })
 
-router.put('/', (req, res) => {
-    // TODO: ACCESS REQUEST BODY AND GET DATA
-    // TODO: ACCESS REQUEST PARAMS AND GET ARTICLE ID
-    // TODO: FIND ARTICLE WITH GIVEN ID
-    // TODO: IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
-    // TODO: IF ARTICLE FOUND UPDATE IT WITH GIVEN DATA
-    // TODO: SEND BACK THE UPDATED ARTICLE
+router.put('/:id', (req, res) => {
+    // ACCESS REQUEST BODY AND GET DATA
+    const {title, content} = req.body
+    // ACCESS REQUEST PARAMS AND GET ARTICLE ID
+    const {id} = req.params
+    // FIND ARTICLE WITH GIVEN ID
+    const article = articles.find(art => art.id == id)
+    // IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
+    if (!article) return res.status(404).json({ message: 'Article Not Found' })
+    // IF ARTICLE FOUND UPDATE IT WITH GIVEN DATA
+    // if (title) {
+    //     article.title = title
+    // }
+    // if (content) {
+    //     article.content = content
+    // }
+    article.title = title || article.title
+    article.content = content || article.content
+    // SEND BACK THE UPDATED ARTICLE
+    res.json({article})
     
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   // TODO: ACCESS REQUEST PARAMS AND GET ARTICLE ID
   // TODO: FIND ARTICLE WITH GIVEN ID
   // TODO: IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
