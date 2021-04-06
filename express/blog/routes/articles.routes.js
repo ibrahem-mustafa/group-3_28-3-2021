@@ -90,11 +90,16 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  // TODO: ACCESS REQUEST PARAMS AND GET ARTICLE ID
-  // TODO: FIND ARTICLE WITH GIVEN ID
-  // TODO: IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
-  // TODO: IF ARTICLE FOUND, DELETE THAT ARTICLE
-  // TODO: SEND BACK A MESSAGE WITH THE RESULT
+  // ACCESS REQUEST PARAMS AND GET ARTICLE ID
+  const {id} = req.params
+  // FIND ARTICLE WITH GIVEN ID
+  const articleIndex = articles.findIndex(art => art.id == id);
+  // IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
+  if (articleIndex == -1) return res.status(404).json({messages: 'Article With Given Id Is Not Found'})
+  // IF ARTICLE FOUND, DELETE THAT ARTICLE
+  articles.splice(articleIndex, 1)
+  // SEND BACK A MESSAGE WITH THE RESULT
+  res.json({message: 'Article Deleted Successfully'})
 })
 
 

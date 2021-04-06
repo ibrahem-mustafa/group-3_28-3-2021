@@ -1,0 +1,23 @@
+show dbs => list available Databases In Your System
+
+use "dbName" => switch/use/create a database
+
+show collections => list available collections inside current database
+
+db."collectionName"."command"
+
+[db] => (static) current database
+[collectionName] => collection that u want to (find, insert, update and delete) in/from it
+[command] => desired action
+
+
+
+// db.collectionName.find({query}) => find document inside collection based on query
+
+// db.collectionName.findOne({query}) => find single document inside a collection based on query
+
+// db.collectionName.insert({data}) => insert record (document) in the collection
+
+// db.collectionName.updateOne({query}, {updated Data})
+
+// db.collectionName.deleteOne({query})
