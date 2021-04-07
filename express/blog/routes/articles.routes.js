@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { Article } = require("../models/articles.model");
+const jwt = require("jsonwebtoken");
 
+const { JWT_KEY } = require("../config/auth.config");
 // const atr = {
 //     id: 1,
 //     title: 'string',
@@ -23,7 +25,7 @@ const articles = [];
 // Get All Articles For Each Uer
 router.get("/", async (req, res) => {
   // Get All Documents (articles) From Database
-  const articles = await Article.find();
+  const articles = await Article.find({});
 
   res.json({
     articles,
@@ -52,23 +54,31 @@ router.get("/:id", async (req, res) => {
 // Create New Article For User
 // title, content
 router.post("/", async (req, res) => {
-  // ACCESS REQUEST BODY AND GET DATA
-  const { title, content } = req.body;
-  // CREATE NEW ARTICLE WITH GIVEN DATA
-  const article = new Article({
-    title,
-    content,
-    publisher: {
-      id: user.id,
-      name: user.name,
-    },
-  });
-  // SAVE ARTICLE
-  await article.save();
-  // SEND BACK THE NEW ARTICLE IN RESPONSE
-  res.json({
-    article,
-  });
+  try {
+
+    const token = req.headers.authorization;
+    const user = jwt.verify(token, JWT_KEY)
+    // ACCESS REQUEST BODY AND GET DATA
+    const { title, content } = req.body;
+    // CREATE NEW ARTICLE WITH GIVEN DATA
+    const article = new Article({
+      title,
+      content,
+      publisher: {
+        id: user.id,
+        name: user.name,
+      },
+    });
+    // SAVE ARTICLE
+    await article.save();
+    // SEND BACK THE NEW ARTICLE IN RESPONSE
+    res.json({
+      article,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({ message: "Not Allowed" });
+  }
 });
 
 router.put("/:id", async (req, res) => {
@@ -102,22 +112,21 @@ router.put("/:id", async (req, res) => {
   res.json({ article });
 });
 
-router.delete("/:id", (req, res) => {
-    
-  // Article.findByIdAndDelete(id)
-
-  
+router.delete("/:id", async (req, res) => {
   // ACCESS REQUEST PARAMS AND GET ARTICLE ID
   const { id } = req.params;
-  // FIND ARTICLE WITH GIVEN ID
-  const articleIndex = articles.findIndex((art) => art.id == id);
-  // IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
-  if (articleIndex == -1)
-    return res
-      .status(404)
-      .json({ messages: "Article With Given Id Is Not Found" });
-  // IF ARTICLE FOUND, DELETE THAT ARTICLE
-  articles.splice(articleIndex, 1);
+  //   // FIND ARTICLE WITH GIVEN ID
+  //   const articleIndex = articles.findIndex((art) => art.id == id);
+  //   // IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
+  //   if (articleIndex == -1)
+  //     return res
+  //       .status(404)
+  //       .json({ messages: "Article With Given Id Is Not Found" });
+  //   // IF ARTICLE FOUND, DELETE THAT ARTICLE
+  //   articles.splice(articleIndex, 1);
+
+  await Article.findByIdAndDelete(id);
+
   // SEND BACK A MESSAGE WITH THE RESULT
   res.json({ message: "Article Deleted Successfully" });
 });

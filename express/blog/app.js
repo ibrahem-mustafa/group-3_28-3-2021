@@ -4,6 +4,7 @@ const logger = require('morgan');
 const express = require('express');
 
 const articlesRouter = require('./routes/articles.routes')
+const authRouter = require('./routes/auth.routes')
 
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/group3", {
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/articles', articlesRouter)
+app.use('/auth', authRouter)
 
 
 // app.get('/test', (req, res) => {
