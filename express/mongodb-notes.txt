@@ -17,7 +17,10 @@ db."collectionName"."command"
 // db.collectionName.findOne({query}) => find single document inside a collection based on query
 
 // db.collectionName.insert({data}) => insert record (document) in the collection
+// db.collectionName.insertMany() => insert multiple documents at once
 
 // db.collectionName.updateOne({query}, {updated Data})
+// db.collectionName.updateMany({query}, {updated Data})
 
 // db.collectionName.deleteOne({query})
+// db.collectionName.deleteMany({query})

@@ -5,6 +5,12 @@ const express = require('express');
 
 const articlesRouter = require('./routes/articles.routes')
 
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/group3", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 const app = express();
 
 app.use(logger('dev'));

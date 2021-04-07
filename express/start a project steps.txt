@@ -6,4 +6,7 @@ cd "projectName"
 
 npm install || npm i
 
+// to use mongoDB
+npm i mongoose
+
 node/nodemon app.js
