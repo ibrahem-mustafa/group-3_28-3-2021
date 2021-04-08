@@ -15,20 +15,38 @@ const { JWT_KEY } = require("../config/auth.config");
 //     createdAt: 'date'
 // }
 
-const user = {
-  id: "123984798217349",
-  name: "ahmed ali",
-};
+// const user = {
+//   id: "123984798217349",
+//   name: "ahmed ali",
+// };
 
 const articles = [];
 
+async function tryCatch(res, code) {
+  try {
+    await code();
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({ message: "Not Allowed" });
+  }
+}
+
+function getTokenDataFromRequest(req) {
+  const token = req.headers.authorization.split(" ")[1];
+  const data = jwt.verify(token, JWT_KEY);
+  return data;
+}
+
 // Get All Articles For Each Uer
 router.get("/", async (req, res) => {
-  // Get All Documents (articles) From Database
-  const articles = await Article.find({});
+  tryCatch(res, async () => {
+    const user = getTokenDataFromRequest(req);
+    // Get All Documents (articles) From Database
+    const articles = await Article.find({ "publisher.id": user.id });
 
-  res.json({
-    articles,
+    res.json({
+      articles,
+    });
   });
 });
 
@@ -36,28 +54,42 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
+  tryCatch(res, async () => {
+    const user = getTokenDataFromRequest(req);
+
+    const article = await Article.findById(id);
+
+    if (!article) {
+      return res.status(404).json({
+        message: "Article Not Found",
+      });
+    }
+
+    if (article.publisher.id != user.id) {
+      return res.status(403).json({message: "Not Allowed To Reach This Article"})
+    }
+
+    res.json({ article });
+  });
+
   // const article = articles.find(art => art.id == id)
 
   // Get Document (article) By It's Id
   // const article = await Article.findOne({ _id: id })
-  const article = await Article.findById(id);
-
-  if (!article) {
-    return res.status(404).json({
-      message: "Article Not Found",
-    });
-  }
-
-  res.json({ article });
 });
 
 // Create New Article For User
 // title, content
-router.post("/", async (req, res) => {
-  try {
 
-    const token = req.headers.authorization;
-    const user = jwt.verify(token, JWT_KEY)
+// TOKEN => "Bearer token"
+
+router.post("/", async (req, res) => {
+  // 'Bearer dhfjdgskjldfjkhvkjdshfkljhvljksdhk'
+  // split => ["Bearer", "dhfjdgskjldfjkhvkjdshfkljhvljksdhk"]
+  // split[1] => "dhfjdgskjldfjkhvkjdshfkljhvljksdhk"
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const user = jwt.verify(token, JWT_KEY);
     // ACCESS REQUEST BODY AND GET DATA
     const { title, content } = req.body;
     // CREATE NEW ARTICLE WITH GIVEN DATA
@@ -82,34 +114,47 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  // ACCESS REQUEST BODY AND GET DATA
-  const { title, content } = req.body;
-  // ACCESS REQUEST PARAMS AND GET ARTICLE ID
-  const { id } = req.params;
-  // FIND ARTICLE WITH GIVEN ID
-  // const article = await Article.findById(id)
-  // // IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
-  // if (!article) return res.status(404).json({ message: 'Article Not Found' })
-  // // IF ARTICLE FOUND UPDATE IT WITH GIVEN DATA
-  // // if (title) {
-  // //     article.title = title
-  // // }
-  // // if (content) {
-  // //     article.content = content
-  // // }
-  // article.title = title || article.title
-  // article.content = content || article.content
 
-  // await article.save()
 
-  const update = {};
+  tryCatch(res, async () => {
+    const user = getTokenDataFromRequest(req);
+    // ACCESS REQUEST BODY AND GET DATA
+    const { title, content } = req.body;
+    // ACCESS REQUEST PARAMS AND GET ARTICLE ID
+    const { id } = req.params;
+    // FIND ARTICLE WITH GIVEN ID
+    // const article = await Article.findById(id)
+    // // IF ARTICLE NOT FOUND SEND BACK A 404 ERROR
+    // if (!article) return res.status(404).json({ message: 'Article Not Found' })
+    // // IF ARTICLE FOUND UPDATE IT WITH GIVEN DATA
+    // // if (title) {
+    // //     article.title = title
+    // // }
+    // // if (content) {
+    // //     article.content = content
+    // // }
+    // article.title = title || article.title
+    // article.content = content || article.content
 
-  if (title) update.title = title;
-  if (content) update.content = content;
+    // await article.save()
 
-  const article = await Article.findByIdAndUpdate(id, update, { new: true });
-  // SEND BACK THE UPDATED ARTICLE
-  res.json({ article });
+    const update = {};
+
+    if (title) update.title = title;
+    if (content) update.content = content;
+
+    // const article = await Article.findByIdAndUpdate(id, update, { new: true });
+    const article = await Article.findOneAndUpdate(
+      { _id: id, "publisher.id": user.id },
+      update,
+      { new: true }
+    );
+
+    if (!article) return res.status(404).json({ message: 'Article Not Found' })
+    // SEND BACK THE UPDATED ARTICLE
+    res.json({ article });
+  });
+  
 });
 
 router.delete("/:id", async (req, res) => {
