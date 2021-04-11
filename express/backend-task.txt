@@ -1,0 +1,19 @@
+// Create Your Own Todo Manager
+
+// Authentication
+=> Signup
+=> Signin
+
+// CMS => Content Management System
+=> Each User Can Create His Own Todos
+=> Each Uer Can List His Own Todos
+=> Each Uer Can Update His Own Todos
+=> Each Uer Can Delete His Own Todos
+=> Visitor (Not Authorized User) Can List All Av Todos With Some Data Limitations
+
+// TODO SCHEMA
+{
+    userId: string,
+    title: string,
+    completed: boolean 
+}
