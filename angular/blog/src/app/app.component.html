@@ -1,0 +1,21 @@
+<h1>Hello From Angular</h1>
+<p  > {{ showTitle ? getMessage() : 'You Can\'t See Our Title' }} </p>
+<!-- <h2 [class]=" titleClasses()" > Our Products </h2> -->
+<!-- <h2 class=" {{titleClasses()}} " > Our Products </h2> -->
+
+<!-- <input type="text" placeholder="Email" disabled="{{ disableInput }}"> -->
+<input type="text" placeholder="Email" [disabled]=" disableInput ">
+<!-- <p [class.green]="disableInput" [class.title]="!disableInput" > Hello World </p> -->
+<p [ngClass]="ngClasses()" > Hello World </p>
+
+<!-- <p [style.color]="disableInput ? 'red' : 'green' " >Is Input Disabled: {{disableInput}} </p> -->
+<p [ngStyle]="ngStyles()" >Is Input Disabled: {{disableInput}} </p>
+
+<button (click)="disableInput = !disableInput" >Change</button>
+
+
+
+
+
+
+

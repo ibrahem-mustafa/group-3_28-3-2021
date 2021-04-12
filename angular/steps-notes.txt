@@ -1,0 +1,52 @@
+\\\\\\\\\\\\ SESSION 1 ////////////
+1: introduction
+2: angular cli
+3: Hello World
+4: Components
+5: Interpolation // {{ value || variable || method || expression }}
+6: Property Binding // [property]="value || variable || method"
+7: Class Binding // [class."className"] = "value" || [ngClass] = "{...} || method return object"
+8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object"
+9: Event Binding // (eventName) = "method() || method($event) || template expression"
+10: Template Reference Variable  // #referenceName
+11: Two Way Data Binding [(ngModel)]="property"
+\\\\\\\\\\\\\\\\\\/////////////////
+
+\\\\\\\\\\\\ SESSION 2 ////////////
+0: ng-template
+****** Structural Directives ******
+1: ngIf // [*ngIf = "value || condition"]  || [*ngIf="condition; else "templateVariable"] 
+2: ngSwitch // a: For Parent => [ngSwitch] = "switchVariable" | b: For Child => *ngSwitchCase="switchCaseValue"
+3: ngFor // *ngFor="let variable of list; index as i; first as f; last as l; odd as o; even as e"
+***********************************2
+4: Component Interactions // @Input() & @Output()
+5: Pipes (Transform Data Before Displaying Them In The View) 
+// For String [ value | lowercase, uppercase, titlecase, slice:startFromIndex:endIndex, json, ]
+// For Number [ value | number:minIntDigits.minDecimalDigits-maxDecimalDigits ]
+// For Percent [value | percent]
+// For Currency [value | currency, currency: 'LE' : code]
+// For Date [value | date:'short, shortDate, shortTime, long, longDate, longTime']
+
+6: Services
+\\\\\\\\\\\\\\\\\\/////////////////
+
+\\\\\\\\\\\\ SESSION 3 ////////////
+7: Interfaces
+8: HTTP & Observable
+9: Fetch Data Via Http Requests // HttpClientModule
+10: Handling Http Errors
+11: Routing And Navigation
+12: router-outlet
+13: routerLink
+14: routerLinkActive // apply one or more classes to the active route
+15: wildcard (**) , redirect (redirectTo) and pathMatch (prefix || full)
+
+16: route parameters with Router // router.navigate(['route', parameter]) 
+17: active route // ActivatedRoute (import it from @angular/router)
+18: Nested Children Routes
+\\\\\\\\\\\\\\\\\\/////////////////
+
+// end with blog system
+=> publishers => publish his own articles => add article => edit article => view articles
+=> user => see all articles
+
