@@ -22,7 +22,7 @@
 4: Component Interactions // @Input() & @Output()
 5: Pipes (Transform Data Before Displaying Them In The View) 
 // For String [ value | lowercase, uppercase, titlecase, slice:startFromIndex:endIndex, json, ]
-// For Number [ value | number:minIntDigits.minDecimalDigits-maxDecimalDigits ]
+// For Number [ value | number:'minIntDigits.minDecimalDigits-maxDecimalDigits' ]
 // For Percent [value | percent]
 // For Currency [value | currency, currency: 'LE' : code]
 // For Date [value | date:'short, shortDate, shortTime, long, longDate, longTime']

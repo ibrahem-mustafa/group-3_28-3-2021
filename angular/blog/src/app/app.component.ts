@@ -10,7 +10,7 @@ export class AppComponent {
 
   userLoggedIn = true;
 
-  title = 'Hello World';
+  title = 'Hello world';
 
   getMessage(): string {
     return 'This Is Hello Message From Angular';
@@ -109,5 +109,7 @@ export class AppComponent {
       age: 27
     },
   ]
+
+  date = new Date()
 
 }

@@ -51,6 +51,35 @@
   </li>
 </ul> -->
 
-<app-user-list></app-user-list>
+<!-- <app-user-list></app-user-list> -->
 
+<!-- PIPES -->
 
+<!-- STRINGS PIPES -->
+<h2>  {{title | uppercase}} </h2>
+<h2>  {{title | lowercase}} </h2>
+<h2>  {{title | titlecase}} </h2>
+<h2>  {{title | slice:0:5}} </h2>
+<h2>  {{users[0] | json}} </h2>
+
+<!-- NUMBERS PIPES -->
+<h2> {{1.15 | number:'1.3-5' }} </h2>
+<h2> {{4.2 | number:'2.2-3'}} </h2>
+<h2> {{3.2656464 | number:'5.1-2'}} </h2>
+
+<!-- PERCENT PIPE -->
+<h2> {{.3 | percent}} </h2>
+
+<!-- Currency PIPE -->
+<h2> {{ 150 | currency }} </h2>
+<h2> {{ 150 | currency:'EUR' }} </h2>
+<h2> {{ 150 | currency:'EUR':'code' }} </h2>
+
+<!-- DATE PIPES -->
+
+<h2> {{date | date:'long'}} </h2>
+<h2> {{date | date:'longDate'}} </h2>
+<h2> {{date | date:'longTime'}} </h2>
+<h2> {{date | date:'short'}} </h2>
+<h2> {{date | date:'shortDate'}} </h2>
+<h2> {{date | date:'shortTime'}} </h2>

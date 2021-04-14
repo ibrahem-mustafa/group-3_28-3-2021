@@ -1,7 +1,9 @@
 <div
+    (click)="selectUser()"
     class="card-list-item"
 
     style="
+    background-color: skyblue;
       width: 200px;
       margin: 10px;
       height: 100px;
@@ -9,7 +11,8 @@
       border-radius: 10px;
       display: flex;
       justify-content: center;
-      align-items: center
+      align-items: center;
+      cursor: pointer
     "
   >
     <h3 style="text-align: center;">{{ user.name }}</h3>
