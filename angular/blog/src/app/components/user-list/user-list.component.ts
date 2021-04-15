@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-list',
@@ -6,35 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  selectedUserName = 'No User Selected';
 
-  users = [
-    {
-      name: 'Ahmed',
-      age: 18,
-    },
-    {
-      name: 'Mohammed',
-      age: 29,
-    },
-    {
-      name: 'ali',
-      age: 49,
-    },
-    {
-      name: 'ibrahem',
-      age: 27,
-    },
-  ];
-  constructor() {}
+
+  get users() {
+    return this.usersService.users;
+  }
+
+  get selectedUserName() {
+    return this.usersService.selectedUserName
+  }
+
+  constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {}
 
-  updateSelectedUser(username: string) {
-    if (username === this.selectedUserName) {
-      this.selectedUserName = 'No User Selected'
-      return;
-    }
-    this.selectedUserName = username
-  };
+
 }

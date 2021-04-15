@@ -1,0 +1,28 @@
+<div
+  class="d-flex flex-column justify-content-center align-items-center"
+  style="width: 100%; height: 100vh"
+>
+  <h2 class="mb-3">Login</h2>
+  <div class="mb-3" style="max-width: 350px">
+    <label for="email" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Email"
+      [(ngModel)]="email"
+    />
+  </div>
+  <div class="mb-3" style="max-width: 350px">
+    <label for="password" class="form-label">Password</label>
+    <input
+      class="form-control"
+      id="password"
+      type="password"
+      placeholder="Password"
+       [(ngModel)]="password"
+    />
+  </div>
+
+  <button class="btn btn-primary" (click)="login()">Login</button>
+</div>

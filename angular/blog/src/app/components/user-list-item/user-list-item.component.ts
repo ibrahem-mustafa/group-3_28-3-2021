@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-list-item',
@@ -6,15 +7,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./user-list-item.component.css'],
 })
 export class UserListItemComponent implements OnInit {
-  @Input() user: any = {};
 
-  @Output() selectUserEvent = new EventEmitter();
 
-  constructor() {}
+  @Input() user: any
 
-  ngOnInit(): void {}
+  constructor(private usersService: UsersService) {}
+
+  ngOnInit(): void { }
+
+
 
   selectUser() {
-    this.selectUserEvent.emit(this.user.name)
+    this.usersService.updateSelectedUser(this.user.name)
   }
 }

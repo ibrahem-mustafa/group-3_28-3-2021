@@ -1,0 +1,25 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h1 class="my-3">Create Article</h1>
+  <div class="mb-3" style="width: 350px">
+    <label for="title" class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Article Title"
+      [(ngModel)]="title"
+    />
+  </div>
+  <div class="mb-3" style="width: 350px">
+    <label for="content" class="form-label">Content</label>
+    <textarea
+      class="form-control"
+      id="contnet"
+      rows="3"
+      placeholder="Article Content"
+      [(ngModel)]="content"
+    ></textarea>
+
+  </div>
+  <button class="btn btn-success" (click)="send()">Send</button>
+</div>
