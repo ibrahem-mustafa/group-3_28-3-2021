@@ -6,5 +6,16 @@ export interface ARTICLE_INTERFACE {
     id: string;
     name: string;
   };
-  createdAt: string
+  createdAt: string;
 }
+
+export const defaultArticle: ARTICLE_INTERFACE = {
+  _id: '',
+  title: '',
+  content: '',
+  publisher: {
+    id: '',
+    name: '',
+  },
+  createdAt: '',
+};

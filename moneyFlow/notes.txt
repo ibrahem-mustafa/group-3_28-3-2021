@@ -1,0 +1,33 @@
+auth system
+- login
+- signup
+
+swift:
+- accounts
+{
+    name: account name,
+    balance: account balance
+}
+=> add account
+=> edit Account
+- transactions
+{
+    type: income
+    from: {
+        id: AccountId,
+        name: AccountName
+    },
+    to: {
+        id: AccountId,
+        name: AccountName
+    },
+    amount: Transaction Amount,
+    note: Describe Transaction,
+    createdAt: Date
+}
+=> add transaction
+=> edit transaction
+=> delete transaction
+
+
+Account Transactions Types : income | expense | transfer

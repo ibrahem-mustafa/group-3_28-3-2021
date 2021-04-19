@@ -43,7 +43,6 @@
 
 16: route parameters with Router // router.navigate(['route', parameter]) 
 17: active route // ActivatedRoute (import it from @angular/router)
-18: Nested Children Routes
 \\\\\\\\\\\\\\\\\\/////////////////
 
 // end with blog system

@@ -16,6 +16,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
 import { ActionsBarComponent } from './components/bars/actions-bar/actions-bar.component';
 import { ArticleCardComponent } from './components/articles/article-card/article-card.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ArticleCardComponent } from './components/articles/article-card/article
     NotFoundComponent,
     ArticleFormComponent,
     ActionsBarComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
