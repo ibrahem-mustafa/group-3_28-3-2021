@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {AuthRequired} = require('../../middleware/auth/auth-required.middleware')
 const {User} = require('../../models/user.model')
+const {body, validationResult} = require('express-validator')
 
 // /swift/accounts/
 router.get('/', AuthRequired, async (req, res) => {
@@ -21,20 +22,33 @@ router.get('/:id', AuthRequired, async (req,res) => {
     res.json({account})
 })
 
-router.post('/',AuthRequired, async (req, res) => {
-    const {name, balance} = req.body;
-    
-    const user = await User.findById(req.user.id)
+const createAccountValidation = [
+  body("name").notEmpty().withMessage("Name Must Be Valid"),
+  body("balance")
+    .notEmpty()
+    .isFloat({ min: 0, max: 10000 })
+    .withMessage("Balance Must Be In Range Of 1-10000"),
+];
 
-    user.accounts.push({
-        name,
-        balance
-    })
+router.post("/", AuthRequired, createAccountValidation, async (req, res) => {
+  const errors = validationResult(req);
 
-    await user.save();
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
-    res.status(201).json({
-        accounts: user.accounts
-    })
-})
+  const { name, balance } = req.body;
+  const user = await User.findById(req.user.id);
+
+  user.accounts.push({
+    name,
+    balance,
+  });
+
+  await user.save();
+
+  res.status(201).json({
+    accounts: user.accounts,
+  });
+});
 module.exports = router;
