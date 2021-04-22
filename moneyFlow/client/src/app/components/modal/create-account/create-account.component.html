@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Create Account</h4>
+  <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button> -->
+</div>
+<div class="modal-body">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Account Name"
+      [(ngModel)]="name"
+    >
+  </div>
+  <div class="mb-3">
+    <label for="balance" class="form-label">Balance</label>
+    <input
+      type="number"
+      class="form-control"
+      id="balance"
+      placeholder="Initial Balance"
+      [(ngModel)]="balance"
+    >
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="create()">Create</button>
+</div>

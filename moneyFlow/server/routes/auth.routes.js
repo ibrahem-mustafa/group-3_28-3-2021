@@ -25,7 +25,7 @@ router.post("/signin", async (req, res) => {
 
   const token = jwt.sign(data, JWT_KEY);
 
-  res.json({ user: data, token });
+  res.json({ user: data, token, accounts: user.accounts, transactions: user.transactions });
 });
 
 router.post("/signup", async (req, res) => {
@@ -48,7 +48,7 @@ router.post("/signup", async (req, res) => {
     await user.save();
 
     res.status(201).json({msg: 'User Created Successfully'})
-    
+
 });
 
 module.exports = router;

@@ -59,7 +59,7 @@ router.post(
 
     const from = accounts.find((acc) => acc._id == fromId);
     if (!from) return notFound("From Account", res);
-
+    
     // B: 1000
     // A: 150
     // S: -1

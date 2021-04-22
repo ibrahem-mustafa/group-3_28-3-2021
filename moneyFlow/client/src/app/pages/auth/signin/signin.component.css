@@ -1,0 +1,8 @@
+.formContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+.formContainer .form {
+  min-width: 350px;
+}

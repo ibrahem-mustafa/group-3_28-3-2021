@@ -1,33 +1,14 @@
-auth system
-- login
-- signup
+UI
 
-swift:
-- accounts
-{
-    name: account name,
-    balance: account balance
-}
-=> add account
-=> edit Account
-- transactions
-{
-    type: income
-    from: {
-        id: AccountId,
-        name: AccountName
-    },
-    to: {
-        id: AccountId,
-        name: AccountName
-    },
-    amount: Transaction Amount,
-    note: Describe Transaction,
-    createdAt: Date
-}
-=> add transaction
-=> edit transaction
-=> delete transaction
+action bar
+[+] create transaction
+[+] create account
 
+Accounts Details
 
-Account Transactions Types : income | expense | transfer
+Cash
+1000 $
+
+transactions history
+
+100 cash visa 15/5/2015 [X]

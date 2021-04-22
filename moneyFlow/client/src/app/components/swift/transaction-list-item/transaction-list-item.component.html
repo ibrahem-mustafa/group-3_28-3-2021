@@ -1,0 +1,10 @@
+<div class="card shadow-sm m-2 d-flex justify-content-center align-items-start">
+  <div class="card-text d-flex align-items-center   justify-content-between px-3">
+    <span>{{transaction!.type}}</span>
+    <span>$ {{transaction!.amount}}</span>
+    <span>{{transaction!.from.name}}</span>
+    <span>{{transaction!.to.name}}</span>
+    <span>{{transaction!.createdAt || newDate() | date:'short' }}</span>
+    <span class="btn btn-danger">X</span>
+  </div>
+</div>

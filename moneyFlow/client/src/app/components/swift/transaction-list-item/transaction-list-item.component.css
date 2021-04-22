@@ -1,0 +1,14 @@
+.card {
+  min-width:100%;
+  min-height: 80px;
+
+}
+
+.card .card-text {
+  width: 100%
+}
+
+.card .card-text span {
+  display: block;
+  margin: 0px 10px
+}
